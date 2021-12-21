@@ -1,5 +1,7 @@
-import  requests
+import requests
 from django.shortcuts import render
+from .models import City
+from .forms import CityForm
 
 def index(request):
     appid = '43548db585f5bc3f3b0a61a05d64301b'
@@ -7,17 +9,29 @@ def index(request):
           '/weather?q={' \
           '}&units=metric&appid=' + appid
 
-    city = 'London'
-    res = requests.get(url.format(city)).json()
+    if(request.method == 'POST'):
+        form = CityForm(request.POST)
+        form.save()
 
-    city_info = {
-        'city': city,
-        'temp': res["main"]["temp"],
-        'icon': res["weather"][0]["icon"],
-        'wind': res["wind"]["speed"]
-    }
+    form = CityForm()
+
+    cities = City.objects.all()
+
+    all_cities = []
+
+    for city in cities:
+        res = requests.get(url.format(city.name)).json()
+        city_info = {
+            'city': city.name,
+            'temp': res["main"]["temp"],
+            'icon': res["weather"][0]["icon"],
+            'wind': res["wind"]["speed"]
+        }
+
+        all_cities.append(city_info)
 
     context = {
-        'info': city_info
+        'all_info': all_cities,
+        'form': form
     }
     return render(request, 'weather/index.html', context)

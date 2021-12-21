@@ -1,3 +1,9 @@
+body {
+    background: -webkit-linear-gradient(45deg, rgb(183, 207, 154), rgb(82, 182, 178));
+    background: -moz-linear-gradient(45deg, rgb(183, 207, 154), rgb(82, 182, 178));
+    background: linear-gradient(45deg, rgb(183, 207, 154), rgb(82, 182, 178));
+}
+
 a {
     text-decoration: none;
 }
@@ -9,6 +15,10 @@ h1, h2, h3, h4, h5, h6, p {
 
 .d-flex {
     justify-content: space-between;
+
+    background: -webkit-linear-gradient(45deg, rgb(192, 214, 69), rgb(14, 214, 179));
+    background: -moz-linear-gradient(45deg, rgb(192, 214, 69), rgb(14, 214, 179));
+    background: linear-gradient(45deg, rgb(192, 214, 69), rgb(14, 214, 179));
 }
 
 .rightside {
@@ -19,4 +29,16 @@ h1, h2, h3, h4, h5, h6, p {
 
 .rightside nav {
     padding-right: 10px;
+}
+
+.alert   {
+    display: flex;
+    justify-content: space-between;
+
+    padding: 7px;
+}
+
+.img-thumbnail {
+    width: 60px;
+    height: 60px;
 }
