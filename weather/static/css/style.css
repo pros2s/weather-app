@@ -2,6 +2,8 @@ body {
     background: -webkit-linear-gradient(45deg, rgb(183, 207, 154), rgb(82, 182, 178));
     background: -moz-linear-gradient(45deg, rgb(183, 207, 154), rgb(82, 182, 178));
     background: linear-gradient(45deg, rgb(183, 207, 154), rgb(82, 182, 178));
+
+    height: 100vh;
 }
 
 a {

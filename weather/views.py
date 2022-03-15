@@ -3,6 +3,7 @@ from django.shortcuts import render
 from .models import City
 from .forms import CityForm
 
+
 def index(request):
     appid = '43548db585f5bc3f3b0a61a05d64301b'
     url = 'https://api.openweathermap.org/data/2.5' \
